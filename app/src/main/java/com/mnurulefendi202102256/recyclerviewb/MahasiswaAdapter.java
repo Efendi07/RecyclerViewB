@@ -8,13 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-import java.util.Locale;
 
-public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder>
-{
+public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder> {
+
     private List<MahasiswaModel> _mahasiswaModelList;
-    public MahasiswaAdapter(List<MahasiswaModel> mahasiswaModelList)
-    {
+
+    public MahasiswaAdapter(List<MahasiswaModel>  mahasiswaModelList){
         this._mahasiswaModelList = mahasiswaModelList;
     }
 
@@ -32,26 +31,25 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaViewHolder>
 
         holder._jkImageView.setImageResource(R.drawable.boy);
 
-        if (mm.getJenisKelamin().toLowerCase().equals("perempuan"))
-        {
-            holder._jkImageView.setImageResource(R.drawable.female);
+        if (mm.getJenisKelamin().toLowerCase().equals("perempuan")){
+            holder._jkImageView.setImageResource(R.drawable.girl);
         }
 
-        holder._nimTextView.setText(mm.getNim());
         holder._namaTextView.setText(mm.getNama());
-        holder._jpTextView.setText(mm.getJenisKelamin());
+        holder._nimTextView.setText(mm.getNim());
+        holder._jkTextView.setText(mm.getJenisKelamin());
+
 
         String jp = mm.getJP();
         jp = jp.substring(0, 2);
         holder._jpTextView.setText(jp);
     }
 
-
-
     @Override
     public int getItemCount() {
         int count = 0;
-        if (_mahasiswaModelList != null){
+
+        if (_mahasiswaModelList !=  null){
             count = _mahasiswaModelList.size();
         }
         return count;
